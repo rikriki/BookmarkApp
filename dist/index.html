@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>Bbone</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/2103498f.main.css">
+        <script src="scripts/vendor/a8bcb0b6.modernizr.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <div class="container" id="todo-app">
+        
+        </div>
+        <script type="text/template" id="home-template">
+            <div class="header">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href="#">Logout</a></li>
+                </ul>
+                <h3 class="text-muted">Bookmark App</h3>
+            </div>
+
+            <div class="jumbotron">
+                <section id="bookmark-form">
+
+                </section>
+            </div>
+            <ul id="todo-list">
+            <!--Where our To Do items will go -->
+            </ul>
+            <div class="footer">
+                <p>Footer 2015</p>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+            </div>
+        </script>
+        <script type="text/template" id="bookmark-form-template">
+           <h2>Add a new Bookmark</h2><br/>
+            <section id="bookmark">
+            <form class="form-group">
+                <div class="clearfix"> 
+                    <input type="text" id="title-todo" placeholder="Title" class="form-control">
+                </div>
+                <div class="clearfix"> 
+                    <input type="text" id="url-todo" value="http://" class="form-control">
+                </div>
+                <div class="clearfix"> 
+                    <input type="text" id="description-todo" placeholder="Description" class="form-control">
+                </div>
+                <div class="clearfix" id="tag-container"> 
+                    <input type="text" id="tags-todo" placeholder="Tags" class="form-control">
+                </div>
+                <div class="clearfix"> 
+                    <input type="submit" class="btn createTo" value="Submit" class="form-control">
+                </div>
+
+            </form>
+            </section> 
+        </script>
+
+        <script type="text/template" id="login-template">
+            <p>{{content}}</p>
+            <form class='form-signin'>
+                <label for='inputUsername' class='sr-only'>Username</label> 
+                <input id='inputUsername' class='form-control' placeholder='Username'> 
+                <label for='inputPassword' class='sr-only'>Password</label> 
+                <input type='password' id='inputPassword' class='form-control' placeholder='Password'> 
+                <button class='btn btn-lg btn-primary btn-block' id='sign-in' type='submit'>Sign in</button> 
+                <br/><p class='form-signin-heading'>Or</p> 
+                <input id='inputUsernameSU' class='form-control' placeholder='Username'> 
+                <label for='inputPassword' class='sr-only'>Password</label> 
+                <input type='password' id='inputPasswordSU' class='form-control' placeholder='Password'> 
+                <label for='reInputPassword' class='sr-only'>Re-Enter Password</label> 
+                <input type='password' id='reInputPassword' class='form-control' placeholder='Re-Enter Password'>
+                <button class='btn btn-lg btn-default btn-block' id='sign-up' type='submit'>Sign Up</button>
+            </form>
+        </script>
+        
+        <script type="text/template" id="bookmarks-template">
+            <input class="id" type="hidden" value="{{id}}">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                 <img src="http://placehold.it/200x200" class="img-thumbnail">
+              </div>
+              <div class="panel-footer">
+              <h4 class="title">
+                        {{title}}
+                </h4>
+                <p class="url ">
+                {{url}}
+                </p>
+                <p class="description">
+                    <b> Descriptions:</b><br/>    <span>{{description}}</span>
+                </p>
+
+                <button class="btn btn-primary edit" >edit</button>
+                <button class="btn btn-danger destroy">remove</button>
+
+              </div>
+              
+              <p class="tagname text-primary">
+                       <b> Tags :</b> <span>{{tagname}}</span>
+                </p>
+            </div>
+            
+        </script>
+        <script type="text/template" id="modal-template">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit bookmark</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-group">
+                        <input class="id" type="hidden" value="{{id}}" class='form-control'>
+                        <div class="clearfix"> 
+                            <input type="text" id="title-todo" placeholder="Title" value="{{title}}" class='form-control'>
+                        </div>
+                        <div class="clearfix"> 
+                            <input type="text" id="url-todo" placeholder="URL" value="{{url}}" class='form-control'>
+                        </div>
+                        <div class="clearfix"> 
+                            <input type="text" id="description-todo" placeholder="Description" value="{{description}}" class='form-control'>
+                        </div>
+                        <div class="clearfix" id="tag-container"> 
+                            <input type="text" id="tags-todo" placeholder="Tags" value="{{tagname}}" class='form-control'>
+                        </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+        </script>
+
+        
+        <script src="scripts/be1ae4bd.vendor.js"></script>
+
+        <script src="scripts/cd071700.plugins.js"></script>
+        <!-- bower:js -->
+        
+        <!-- endbower -->
+        <script src="scripts/0b73ba09.main.js"></script>
+</body>
+</html>
