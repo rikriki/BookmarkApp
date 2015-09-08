@@ -1,6 +1,6 @@
 DataBlocks Exam
 ===============
-     
+
 This application is a duplicate of bookmarkly and will be use for exam purposes only.
 
 
@@ -11,13 +11,13 @@ How to install
 
 1. Git clone this repo.
 
-https://github.com/rikriki/BookmarkApp
+	https://github.com/rikriki/BookmarkApp
 
-2. install front end dependency.
+2. install front end dependencies.
 	
 	bower install
 
-3. Install Node dependency
+3. Install Node dependencies
 
 	node install
 
