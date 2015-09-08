@@ -12,8 +12,16 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 
 var pgp = require('pg-promise')();
-var connectionString = process.env.DATABASE_URL || 'postgres://postgres:1@localhost:5432/todo';
-var db = pgp(connectionString);
+var cn = {
+    host: 'ec2-54-163-225-82.compute-1.amazonaws.com', // server name or IP address;
+    port: 5432,
+    database: 'd68rcu647d9t97',
+    user: 'vomacjljurztol',
+    password: 'Ji21QOeibbXT2pAxXdqEYS3z1M',
+    ssl: true
+};
+var db = pgp(cn);
+
 
 var session = require('express-session');
 

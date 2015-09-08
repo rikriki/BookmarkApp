@@ -28,7 +28,7 @@
 	    
 		signIn: function (event) {
 			event.preventDefault();
-			var that = this;
+			var self = this;
 			var username = $('#inputUsername').val();
 			var password = $('#inputPassword').val();
 			if (username && password) {
@@ -36,19 +36,19 @@
 		    	backboneApp.currentUser.save({},{
 		    		success: function (req,res) {
 						if(res.status==500){
-							that.showError('.form-signin', res.message);
+							self.showError('.form-signin', res.message);
 						}else{
 							Backbone.trigger('login-event-submit');
 						}
 					},
 					error: function (res) {
-						that.showError('.form-signin', res.message);
+						self.showError('.form-signin', res.message);
 						
 					}	
 
 		    	})
 		    }else{
-		    	that.showError('.form-signin', "Please do not leave blanks on every field.");
+		    	self.showError('.form-signin', "Please do not leave blanks on every field.");
 		    	$('#inputUsername').addClass('errorField');	
 				$('#inputPassword').addClass('errorField');	
 		    }
@@ -58,6 +58,7 @@
 			var username = $('#inputUsernameSU').val();
 			var password = $('#inputPasswordSU').val();
 			var rePassword = $('#reInputPassword').val();
+			var that = this;
 			if (username && password && rePassword) {
 				if(password == rePassword){
 					backboneApp.currentUser = new backboneApp.Models.AuthenticateModel({username: username, password: password});
