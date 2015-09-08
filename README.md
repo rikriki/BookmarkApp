@@ -19,7 +19,7 @@ How to install
 
 3. Install Node dependencies
 
-	node install
+	npm install
 
 
 4. Compile the front end
