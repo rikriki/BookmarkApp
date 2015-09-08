@@ -24,7 +24,7 @@ How to install
 
 4. Compile the front end
 	
-	grunt serve:dist
+	grunt build
 
 5. Run the application
 

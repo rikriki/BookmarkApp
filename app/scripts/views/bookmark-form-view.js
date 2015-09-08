@@ -28,6 +28,9 @@
 	        var descriptions = this.$('#description-todo').val().trim();
 	        var tags = this.$('#tag-container').find('input').eq(0).val().trim();
 	        var that =this;
+
+	         $('input[type="submit"]').prop('disabled', true);
+ 
 	        if (titled && urls && descriptions && tags) {
 	          	var newBookmark = new backboneApp.Models.BookmarkModel({title: titled,url: urls,description: descriptions,tagname: tags});
 				newBookmark.save({},{
@@ -38,15 +41,21 @@
 			            $('.tagsinput').find('span').remove();
 			            $('#url-todo').val('http://');
 			            $('#description-todo').val('');
+			            $('input[type="submit"]').prop('disabled', false);
 					 },
 					 error: function (error) {
 						console.log(error);
+						$('input[type="submit"]').prop('disabled', false);
 					 }
 				})
+			}else{
+				this.showError('#bookmark', "Please do not leave blanks on every field.");
+				$(".form-control").addClass("errorField");
+				$(".tagsinput").addClass("errorField");
 			}
 	    },
 	    showError: function (selector, message, type) {
-		var element = "<h1 class='error' style='color:red;margin:5px 0'>"+message+"</h1>";
+		var element = "<p class='error' style='color:red;margin:5px 0'>"+message+"</p>";
 		if (type === 'login') {
 			$(selector).before(element);
 		} else {
@@ -55,6 +64,10 @@
 
 		window.setTimeout(function () {
 			$('.error').remove();
+			$(".form-control").removeClass("errorField");
+			$(".tagsinput").removeClass("errorField");
+			 $('input[type="submit"]').prop('disabled', false);
+ 
 		}, 2000);
 	},
 

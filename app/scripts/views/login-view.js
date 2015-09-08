@@ -27,6 +27,7 @@
 	    },
 	    
 		signIn: function (event) {
+			$('button[type="submit"]').prop('disabled', true);
 			event.preventDefault();
 			var self = this;
 			var username = $('#inputUsername').val();
@@ -40,10 +41,10 @@
 						}else{
 							Backbone.trigger('login-event-submit');
 						}
+						$('button[type="submit"]').prop('disabled', false);
 					},
 					error: function (res) {
 						self.showError('.form-signin', res.message);
-						
 					}	
 
 		    	})
@@ -55,6 +56,7 @@
 		},
 		signup:function(){
 			event.preventDefault();
+			$('button[type="submit"]').prop('disabled', true);
 			var username = $('#inputUsernameSU').val();
 			var password = $('#inputPasswordSU').val();
 			var rePassword = $('#reInputPassword').val();
@@ -70,25 +72,28 @@
 							}else{
 								console.log(res)
 								Backbone.trigger('login-event-submit');
+								$('button[type="submit"]').prop('disabled', false);
 							}
+							
 						},
 						error: function (res) {
 							console.log(res)
 							that.showError('.form-signin', res.message);
-
 						}	
 
 			    	})	
 				}else{
 				this.showError('.form-signin', "Password doesnt match.");	
 				$('#reInputPassword').addClass('errorField');	
-				$('#inputPasswordSU').addClass('errorField');		
+				$('#inputPasswordSU').addClass('errorField');
+				
 				}
 			}else{
 		    	this.showError('.form-signin', "Please do not leave blanks on every field.");
 		    	$('#inputUsernameSU').addClass('errorField');	
 		    	$('#inputPasswordSU').addClass('errorField');	
 				$('#reInputPassword').addClass('errorField');	
+				
 		    }
             
             
@@ -108,6 +113,7 @@
 		window.setTimeout(function () {
 			$('.error').remove();
 			$('input').removeClass('errorField');
+			$('button[type="submit"]').prop('disabled', false);
 		}, 2000);
 	},
 
