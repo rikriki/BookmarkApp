@@ -11,7 +11,7 @@ How to install
 
 1. Git clone this repo.
 
-	https://github.com/rikriki/BookmarkApp
+	git clone https://github.com/rikriki/BookmarkApp
 
 2. install front end dependencies.
 	
