@@ -7,7 +7,7 @@
     backboneApp.Views.MainView = Backbone.View.extend({
 
         
-        el: '#todo-app',
+        el: '#bookmark-app',
 
         //template: Handlebars.compile( $("#home-template").html()),
         template: Handlebars.compile( Templates.home),
@@ -19,9 +19,7 @@
         initialize: function () {
             this.render();
             books = new backboneApp.Collections.BookmarkCollection();
-            //this.listenTo(books, 'add', this.addTodoItem);
-            //this.listenTo(books, 'reset', this.addAllTodoItems);
-
+          
             this.listenTo( Backbone, 'modal-event-save', function (data) {
                 console.log(data)
               this.updateList();
@@ -50,10 +48,6 @@
                                         self.reloadBookMark();        
                                     }
                                 });
-                                //self.listenTo(books, 'add', self.addTodoItem);
-                                //self.listenTo(books, 'reset', self.addAllTodoItems);
-                                
-                                
                                 var formview = new backboneApp.Views.BookmarkFormView();
                                  $('.nav').show();
                             },
@@ -71,13 +65,13 @@
                 }
             });
         },
-        addTodoItem: function (todo) {
-            var view = new backboneApp.Views.BookmarkView({ model: todo });
-            this.$('#todo-list').append(view.render().el);
+        addBookmarkItem: function (Bookmark) {
+            var view = new backboneApp.Views.BookmarkView({ model: Bookmark });
+            this.$('#bookmark-list').append(view.render().el);
         },
 
-        addAllTodoItems: function () {
-            books.each(this.addTodoItem, this);
+        addAllBookmarkItems: function () {
+            books.each(this.addBookmarkItem, this);
         },
         updateList:function(){
             var self =this;
@@ -85,10 +79,10 @@
         },
         reloadBookMark:function(){
             var self =this;
-            this.$('#todo-list').empty();
+            this.$('#bookmark-list').empty();
             books.fetch({
                 success:function(req,res){
-                    self.addAllTodoItems();
+                    self.addAllBookmarkItems();
                 }
             });
         },
@@ -96,9 +90,6 @@
               var self =this;
               $(this.el).empty();
               this.$el.html(this.template());
-              //books = new backboneApp.Collections.BookmarkCollection();
-              //this.listenTo(books, 'add', this.addTodoItem);
-              //this.listenTo(books, 'reset', this.addAllTodoItems);
               books.fetch({
                 success:function(req,res){
                     self.reloadBookMark();        
@@ -114,7 +105,7 @@
             event.preventDefault();
             var self = this;
             books.reset();
-            this.$('#todo-list').empty();
+            this.$('#bookmark-list').empty();
             $.ajax({
                 url: '/api/v2/login',
                 type: 'DELETE',
