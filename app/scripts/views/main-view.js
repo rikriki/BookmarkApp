@@ -67,7 +67,7 @@
         },
         addBookmarkItem: function (Bookmark) {
             var view = new backboneApp.Views.BookmarkView({ model: Bookmark });
-            this.$('#bookmark-list').append(view.render().el);
+            this.$('#todo-list').append(view.render().el);
         },
 
         addAllBookmarkItems: function () {
@@ -79,7 +79,7 @@
         },
         reloadBookMark:function(){
             var self =this;
-            this.$('#bookmark-list').empty();
+            this.$('#todo-list').empty();
             books.fetch({
                 success:function(req,res){
                     self.addAllBookmarkItems();
@@ -105,7 +105,7 @@
             event.preventDefault();
             var self = this;
             books.reset();
-            this.$('#bookmark-list').empty();
+            this.$('#todo-list').empty();
             $.ajax({
                 url: '/api/v2/login',
                 type: 'DELETE',
