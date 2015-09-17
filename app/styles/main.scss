@@ -91,7 +91,7 @@ body {
 
 
 /* Additional css*/
-    ul#todo-list {
+    ul#bookmark-list {
       list-style-type: none; /* Hides bullet points from todo list */
       padding:0px;
       
@@ -131,13 +131,13 @@ body {
 
       clear: both;  
     }
-    #todo-list input.edit {
+    #bookmark-list input.edit {
       display: none; /* Hides input box*/
     }
-    #todo-list .editing label {
+    #bookmark-list .editing label {
       display: none; /* Hides label text when .editing*/
     }    
-    #todo-list .editing input.edit {
+    #bookmark-list .editing input.edit {
       display: inline; /* Shows input text box when .editing*/
     }
     div.tagsinput { border:1px solid #CCC; background: #FFF; padding:5px; width:300px; height:100px; overflow-y: auto;}
