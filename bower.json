@@ -1,6 +1,6 @@
 {
   "name": "bbone",
-  "version": "0.0.1a",
+  "version": "0.0.1a-a",
   "dependencies": {
     "bootstrap-sass-official": "~3.3.1",
     "jquery": "~2.1.0",
