@@ -4,7 +4,7 @@
 var pgp = require('pg-promise')();
 var connectionString = process.env.DATABASE_URL || 'postgres://postgres:1@localhost:5432/todo';
 var db = pgp(connectionString);
-var dbConn = "asd"
+var dbConn = "asd riki"
 
 
 var riki = function(){
