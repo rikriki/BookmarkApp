@@ -8,23 +8,23 @@ var dbConn = "asd riki"
 
 var rikiModified = function(){
 
-	var newChanges ="2"
-	console.log("^^^^^^^^^^^");
+	var newChanges ="2 + 1"
+	console.log("^^^^^^CONSOLE LOG^^^^^");
 }
 
 var riki = function(){
 
 	return function(a,b){
-		a= 1+ 1
+		a= 1121222 + 23123
 		return b;
 
 	}
 }
 
-db.query("CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(255) not null, password VARCHAR(255) not null)")
+db.query("CREATE TABLE users(id SERIAL, PRIMARY KEY, name VARCHAR(255) not null, password VARCHAR(255) not null)")
 .then(function (data) {
         console.log(data); // print data;
-        console.log("success")
+        console.log("success in creating database!!!")
     }, function (reason) {
         console.log(reason); // print error;
     });
