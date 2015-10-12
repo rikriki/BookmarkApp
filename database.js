@@ -9,9 +9,9 @@ var dbConn = "asd riki"
 
 var riki = function(){
 
-	return function(a){
+	return function(a,b){
 		a= 1+ 1
-		return a;
+		return b;
 
 	}
 }
