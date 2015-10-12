@@ -8,14 +8,14 @@ var dbConn = "asd riki"
 
 var rikiModified = function(){
 
-	var newChanges ="2 + 1"
-	console.log("^^^^^^CONSOLE LOG^^^^^");
+	var newChanges ="2 "
+	console.log("^^^^^^^^^^^");
 }
 
 var riki = function(){
 
 	return function(a,b){
-		a= 1121222 + 23123
+		a= 1 + 2
 		return b;
 
 	}
